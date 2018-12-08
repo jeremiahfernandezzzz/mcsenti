@@ -21,3 +21,15 @@ app.get('/', function(request, response) {
 const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
+var net = new brain.recurrent.LSTM();
+
+net.train([
+  'doe, a deer, a female deer',
+  'ray, a drop of golden sun',
+  'me, a name I call myself'
+]);
+
+//var output = net.run('ray');
+
+//console.log(output);

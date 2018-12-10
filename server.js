@@ -109,5 +109,5 @@ net.train([
       "input": "i love to play games",
       "output": "software"
   }
-], {iterations: 10});
+], {iterations: 10000});
 

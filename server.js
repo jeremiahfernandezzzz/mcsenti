@@ -28,86 +28,86 @@ const listener = app.listen(process.env.PORT, function() {
 
 var net = new brain.recurrent.LSTM();
 
-net.train([
-  {
-    "input": "noisy fan",
-    "output": "cooling"
-  },
-  {
-    "input": "my unit test failed",
-    "output": "software"
-  },
-  {
-    "input": "tried the program, but it was buggy",
-    "output": "software"
-  },
-  {
-    "input": "i need a new power supply",
-    "output": "hardware"
-  },
-  {
-    "input": "the drive has a 2TB capacity",
-    "output": "hardware"
-  },
-  {
-    "input": "unit-tests",
-    "output": "software"
-  },
-  {
-    "input": "program",
-    "output": "software"
-  },
-  {
-    "input": "power supply",
-    "output": "hardware"
-  },
-  {
-    "input": "drive",
-    "output": "hardware"
-  },
-  {
-    "input": "it needs more memory",
-    "output": "hardware"
-  },
-  {
-    "input": "code",
-    "output": "software"
-  },
-  {
-    "input": "i found some bugs in the code",
-    "output": "software"
-  },
-  {
-    "input": "i swapped the memory",
-    "output": "hardware"
-  },
-  {
-    "input": "i tested the code",
-    "output": "software"
-  },
-  {
-    "input": "i love computers",
-    "output": "hardware"
-  },
-  {
-    "input": "programming",
-    "output": "software"
-  },
-  {
-    "input": "i broke my pc",
-    "output": "hardware"
-  },
-  {
-    "input": "computer",
-    "output": "hardware"
-  },
-  {
-      "input": "buy me a laptop",
-      "output": "hardware"
-  },
-  {
-      "input": "i love to play games",
-      "output": "software"
-  }
-], {iterations: 10000});
+// net.train([
+//   {
+//     "input": "noisy fan",
+//     "output": "cooling"
+//   },
+//   {
+//     "input": "my unit test failed",
+//     "output": "software"
+//   },
+//   {
+//     "input": "tried the program, but it was buggy",
+//     "output": "software"
+//   },
+//   {
+//     "input": "i need a new power supply",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "the drive has a 2TB capacity",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "unit-tests",
+//     "output": "software"
+//   },
+//   {
+//     "input": "program",
+//     "output": "software"
+//   },
+//   {
+//     "input": "power supply",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "drive",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "it needs more memory",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "code",
+//     "output": "software"
+//   },
+//   {
+//     "input": "i found some bugs in the code",
+//     "output": "software"
+//   },
+//   {
+//     "input": "i swapped the memory",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "i tested the code",
+//     "output": "software"
+//   },
+//   {
+//     "input": "i love computers",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "programming",
+//     "output": "software"
+//   },
+//   {
+//     "input": "i broke my pc",
+//     "output": "hardware"
+//   },
+//   {
+//     "input": "computer",
+//     "output": "hardware"
+//   },
+//   {
+//       "input": "buy me a laptop",
+//       "output": "hardware"
+//   },
+//   {
+//       "input": "i love to play games",
+//       "output": "software"
+//   }
+// ], {iterations: 10000});
 

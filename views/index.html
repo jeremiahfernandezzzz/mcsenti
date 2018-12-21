@@ -33,9 +33,11 @@
       cookie     : true,
       xfbml      : true,
       version    : 'v3.2'
+    });    
+
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
     });
-      
-    FB.AppEvents.logPageView();   
       
   };
 

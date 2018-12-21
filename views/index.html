@@ -27,10 +27,6 @@
     
 
 <script>
-  FB.login(function (response){
-    console.log(response);
-  })
-  
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '528140651036828',
@@ -42,6 +38,12 @@
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
+    
+    function logIn(){
+      FB.login(function (response){
+        console.log(response);
+      })
+    }
       
   };
 
@@ -77,11 +79,7 @@
       </section>
       
       
-      <fb:login-button 
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
-        hai
-      </fb:login-button>
+      <button onclick="logIn()">hai</button>
       
     </main>
 

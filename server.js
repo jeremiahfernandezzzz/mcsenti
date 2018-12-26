@@ -13,7 +13,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/dashboard', function(request, response){
-  response.send(request.body.input);
+  response.sendFile(__dirname + '/views/dashboard.html');
 })
 
 app.post('/test', function(request, response){

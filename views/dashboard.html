@@ -25,61 +25,14 @@
   </head>
   <body>
     
-    
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '528140651036828',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.2'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-  
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      if (response.status === "connected") {
-        window.location = "https://dark-element.glitch.me/dashboard";
-      }
-    });
-  }
-</script>
-    
     <header>
       <h1>
-        A Dream of the Future
+        Dashboard
       </h1>
     </header>
 
     <main>
-      <p class="bold">Oh hi,</p>
       
-      <p>Tell me your hopes and dreams:</p>
-      
-      <form action="/test" method="POST">
-        <input name="input" type="text" maxlength="100" aria-labelledby="submit-dream">
-        <button type="submit" id="submit-dream">Submit Dream</button>
-      </form>
-      
-      <section class="dreams">
-        <ul id="dreams"></ul>
-      </section>
-      
-      <fb:login-button 
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
-      </fb:login-button>
       
     </main>
 

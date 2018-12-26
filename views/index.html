@@ -49,10 +49,10 @@
   
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
-      console.log(response.status);
-      if (response.status === "connected") {
-        window.location = "https://dark-element.glitch.me/dashboard";
-      }
+      console.log(response)
+      // if (response.status === "connected") {
+      //   window.location = "https://dark-element.glitch.me/dashboard";
+      // }
     });
   }
 </script>

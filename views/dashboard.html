@@ -25,6 +25,7 @@
   </head>
   
   <script>
+    console.log("aye");
     
     
   window.fbAsyncInit = function() {
@@ -37,10 +38,19 @@
       
     FB.AppEvents.logPageView();   
       
-    FB.api('/113124472034820', function(response) {
+    FB.api('/2473850039308048', 'EAAHgV1PlgJwBALQ7zlTdst1RX3uqsO621jvpAczZC2JGmW42T7DGpVjrt61uYgfZABhWjiScrVRIsAwC4DUUQHcFF6ZClA5oCE1Gi914fognPZABvUYzNmbBoZB6gikeJmUesHbfj0rHYdkHOZALZA1ZBqEe5VpsqOxr8g7QpvnHPi5TkKMZB8SCKeZCH1jUkrjTQZD', function(response) {
       console.log(response);
     });
   };
+    
+    
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
   </script>
   
   <body>

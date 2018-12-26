@@ -41,9 +41,9 @@
     FB.getLoginStatus(function(response){
       console.log(response);
       if (response.status === "connected"){
-        getELementById("head").innerHTML = "Welcome to Dashboard";
+        document.getElementById("head").innerHTML = "Welcome to Dashboard";
       } else {
-        getELementById("head").innerHTML = "Not Welcome to Dashboard. Please Log In";
+        document.getElementById("head").innerHTML = "Not Welcome to Dashboard. Please Log In";
       }
     })
   };

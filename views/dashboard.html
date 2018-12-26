@@ -23,6 +23,26 @@
     <!-- import the webpage's client-side javascript file -->
     <script src="/client.js" defer></script>
   </head>
+  
+  <script>
+    
+    
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '528140651036828',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.2'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+    FB.api('/113124472034820', function(response) {
+      console.log(response);
+    });
+  };
+  </script>
+  
   <body>
     
     <header>

@@ -42,6 +42,7 @@
       console.log(response);
       if (response.status === "connected"){
         document.getElementById("head").innerHTML = "Welcome to Dashboard";
+        document.getElementById("authresponse").innerHTML = JSON.stringify(response.authResponse);
       } else {
         document.getElementById("head").innerHTML = "Not Welcome to Dashboard. Please Log In";
       }
@@ -64,6 +65,9 @@
       <h1 id="head">
         Dashboard
       </h1>
+      <p id="authresponse">
+        
+      </p>
     </header>
 
     <main>

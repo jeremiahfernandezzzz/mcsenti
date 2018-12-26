@@ -25,7 +25,7 @@
   </head>
   <body>
     
-
+    
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -33,17 +33,9 @@
       cookie     : true,
       xfbml      : true,
       version    : 'v3.2'
-    });    
-
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
     });
-    
-    function logIn(){
-      FB.login(function (response){
-        console.log(response);
-      })
-    }
+      
+    FB.AppEvents.logPageView();   
       
   };
 
@@ -54,8 +46,6 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-  
-  
 </script>
     
     <header>
@@ -78,8 +68,10 @@
         <ul id="dreams"></ul>
       </section>
       
-      
-      <button onclick="logIn()">hai</button>
+      <fb:login-button 
+        scope="public_profile,email"
+        onlogin="checkLoginState();">
+      </fb:login-button>
       
     </main>
 

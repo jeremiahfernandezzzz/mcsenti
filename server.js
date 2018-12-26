@@ -12,6 +12,10 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/dashboard', function(request, response){
+  response.send(request.body.input);
+})
+
 app.post('/test', function(request, response){
   
   var output = net.run(request.body.input);

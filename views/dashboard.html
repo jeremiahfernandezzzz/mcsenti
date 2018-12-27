@@ -38,15 +38,15 @@
       
     FB.AppEvents.logPageView();   
       
-    FB.api('/326043571334336', {'access_token': 'EAAHgV1PlgJwBAHdNdS7nAxA5JZAHXtGgauF5ujEEtB6DJhn00R3AfmXZChO6bKaF7UlttKgMfPgMn3rmxqrltWDio4tyZArqzZANQwF7O0U83epti7PBZC04XrNIzqVqeu0q4DcWYFfvZAYP5ncS5Vk5RrvkLI2ZBflKbJlTgZBXgyGA0HPex6qj8v2ZCkptP1FLwdQjOTGnwxAZDZD'}, function(response) {
-      console.log(response);
-    });
+    
     
     FB.getLoginStatus(function(response){
       console.log(response);
       if (response.status === "connected"){
         document.getElementById("head").innerHTML = "Welcome to Dashboard";
-        document.getElementById("authresponse").innerHTML = JSON.stringify(response.authResponse);
+        FB.api('/326043571334336', {'access_token': 'EAAHgV1PlgJwBAHdNdS7nAxA5JZAHXtGgauF5ujEEtB6DJhn00R3AfmXZChO6bKaF7UlttKgMfPgMn3rmxqrltWDio4tyZArqzZANQwF7O0U83epti7PBZC04XrNIzqVqeu0q4DcWYFfvZAYP5ncS5Vk5RrvkLI2ZBflKbJlTgZBXgyGA0HPex6qj8v2ZCkptP1FLwdQjOTGnwxAZDZD'}, function(api_response) {
+          document.getElementById("authresponse").innerHTML = JSON.stringify(api_response);
+        });
       } else {
         document.getElementById("head").innerHTML = "Not Welcome to Dashboard. Please Log In";
       }

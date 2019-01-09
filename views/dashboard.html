@@ -51,7 +51,7 @@
           document.getElementById("head").innerHTML = "Welcome to MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name', {
-            'access_token': '4cYSG_17bKnGQs8TEAAHgV1PlgJwBAEmOTtBs6c9ZBB6no5Q7VryTaCCKPL2eHUjziia2AaoV6pg8CQ5iht1MXejLwawNaDDsiy8s6w2QPKkLkv1BfWTp3ZBbFwUeLoOZBehA0ZAZAb6gJ9qtj5Shb2ZC3iNBo7l0Ch0kCaBJmZCZCDsZBKb2pWBEQ3pjbwZAXxKeeMgRTse3BZAueWDd0wZD4Wf_OwgoMF8'
+            'access_token': 'EAAHgV1PlgJwBAHmhan0V8YJUZBzRelZBN0xymtPHdHNZBAVnH13wepJbZAahslhecTpCs5S1QBGgoepwNg86I5K9EX0d5Flabq5iYUz3vSwyF8G9W7odsZA33YAbzPwmM2z9585ulE62XkwbaCpxLkJdHKEXYZAmi288MGIN4ZAGWbdHykNndRfO6eqZC1g1bLkknAlaZAqsfbQZDZD'
         }, function(api_response) {
           document.getElementById("authresponse").innerHTML = JSON.stringify(api_response).replace(/},/gi, '},<br/>').replace(/]/gi, '<br/>]').replace(/\[/gi, '[<br/>');
         });

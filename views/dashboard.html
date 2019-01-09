@@ -54,10 +54,10 @@
             'access_token': 'EAAHgV1PlgJwBAHmhan0V8YJUZBzRelZBN0xymtPHdHNZBAVnH13wepJbZAahslhecTpCs5S1QBGgoepwNg86I5K9EX0d5Flabq5iYUz3vSwyF8G9W7odsZA33YAbzPwmM2z9585ulE62XkwbaCpxLkJdHKEXYZAmi288MGIN4ZAGWbdHykNndRfO6eqZC1g1bLkknAlaZAqsfbQZDZD'
         }, function(api_response) {
           // console.log(api_response);
-          document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/>";
+          document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           api_response["data"].forEach(function (post){
             // console.log(post["message"]);
-            document.getElementById("recent_posts").innerHTML += JSON.stringify(post["message"]) + "<br/>";
+            document.getElementById("recent_posts").innerHTML += "<em>" + JSON.stringify(post["message"]) + "</em><br/>";
           });
           
         });
@@ -82,12 +82,12 @@
     <header>
       <h1 id="head">
         MC Senti
-      </h1>
       
-      <div id="user_info">
-        <img id="user_photo"/>
-        <span id="user_name"></span>
-      </div>
+        <div id="user_info">
+          <img id="user_photo"/>
+          <span id="user_name" style="position: relative; bottom: 20px"></span>
+        </div>
+      </h1>
         
       
       <p id="recent_posts">

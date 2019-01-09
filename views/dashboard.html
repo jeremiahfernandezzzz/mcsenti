@@ -43,7 +43,7 @@
     FB.getLoginStatus(function(response){
       console.log(response);
       if (response.status === "connected"){
-        FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+        FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(50).height(50)'}, function(response) {
           // document.getElementById('status').innerHTML = response.id;
           // console.log(response.name);
           document.getElementById('user_photo').src = response.picture.data.url;
@@ -53,9 +53,13 @@
         FB.api('/326043571334336/feed?fields=id,message,name', {
             'access_token': 'EAAHgV1PlgJwBAHmhan0V8YJUZBzRelZBN0xymtPHdHNZBAVnH13wepJbZAahslhecTpCs5S1QBGgoepwNg86I5K9EX0d5Flabq5iYUz3vSwyF8G9W7odsZA33YAbzPwmM2z9585ulE62XkwbaCpxLkJdHKEXYZAmi288MGIN4ZAGWbdHykNndRfO6eqZC1g1bLkknAlaZAqsfbQZDZD'
         }, function(api_response) {
-          console.log(api_response);
-          // api_response.forEach()
-          // document.getElementById("recent_posts").innerHTML = JSON.stringify(api_response).replace(/},/gi, '},<br/>').replace(/]/gi, '<br/>]').replace(/\[/gi, '[<br/>');
+          // console.log(api_response);
+          document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/>";
+          api_response["data"].forEach(function (post){
+            // console.log(post["message"]);
+            document.getElementById("recent_posts").innerHTML += JSON.stringify(post["message"]) + "<br/>";
+          });
+          
         });
       } else {
         document.getElementById("head").innerHTML = "Please Log In";
@@ -81,8 +85,8 @@
       </h1>
       
       <div id="user_info">
-        <div id="user_name"></div>
         <img id="user_photo"/>
+        <span id="user_name"></span>
       </div>
         
       
@@ -97,15 +101,6 @@
       
       
     </main>
-
-    <footer>
-      Made with <a href="https://glitch.com">Glitch</a>!
-    </footer>
-
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
 
   </body>
 </html>

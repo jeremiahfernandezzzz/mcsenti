@@ -53,7 +53,9 @@
         FB.api('/326043571334336/feed?fields=id,message,name', {
             'access_token': 'EAAHgV1PlgJwBAHmhan0V8YJUZBzRelZBN0xymtPHdHNZBAVnH13wepJbZAahslhecTpCs5S1QBGgoepwNg86I5K9EX0d5Flabq5iYUz3vSwyF8G9W7odsZA33YAbzPwmM2z9585ulE62XkwbaCpxLkJdHKEXYZAmi288MGIN4ZAGWbdHykNndRfO6eqZC1g1bLkknAlaZAqsfbQZDZD'
         }, function(api_response) {
-          document.getElementById("authresponse").innerHTML = JSON.stringify(api_response).replace(/},/gi, '},<br/>').replace(/]/gi, '<br/>]').replace(/\[/gi, '[<br/>');
+          console.log(api_response);
+          // api_response.forEach()
+          // document.getElementById("recent_posts").innerHTML = JSON.stringify(api_response).replace(/},/gi, '},<br/>').replace(/]/gi, '<br/>]').replace(/\[/gi, '[<br/>');
         });
       } else {
         document.getElementById("head").innerHTML = "Please Log In";
@@ -84,9 +86,9 @@
       </div>
         
       
-      <code id="authresponse">
+      <p id="recent_posts">
         
-      </code>
+      </p>
       
       
     </header>

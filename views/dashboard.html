@@ -43,14 +43,14 @@
     FB.getLoginStatus(function(response){
       console.log(response);
       if (response.status === "connected"){
-        document.getElementById("head").innerHTML = "Welcome to Dashboard";
-        FB.api('/326043571334336/feed?fields=id,message', {
+        document.getElementById("head").innerHTML = "Welcome to MC Senti";
+        FB.api('/326043571334336/feed?fields=id,message,name', {
             'access_token': 'EAAHgV1PlgJwBAFLB2iyXtfbdSI87kwb6OBYhGOcxRDsmvQVY57qXqc4vYvVehYZBDXV1aGMUAxVurn8bTYZC8rVQGpC3vZCQNTqQZAwfgDgcYIYhEw7d3JACF7UokNFpROZBkkrCjncm97ZBK1CHtQe6SY0OQlZBNGun8KHyXIcSuLisWTEDzfY56LQQoZCFgVEHdYfWBvZChngZDZD'
         }, function(api_response) {
           document.getElementById("authresponse").innerHTML = JSON.stringify(api_response).replace(/},/gi, '},<br/>').replace(/]/gi, '<br/>]').replace(/\[/gi, '[<br/>');
         });
       } else {
-        document.getElementById("head").innerHTML = "Not Welcome to Dashboard. Please Log In";
+        document.getElementById("head").innerHTML = "Please Log In";
       }
     })
   };
@@ -69,7 +69,7 @@
     
     <header>
       <h1 id="head">
-        Dashboard
+        MC Senti
       </h1>
       <code id="authresponse">
         

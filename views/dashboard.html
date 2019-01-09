@@ -48,7 +48,7 @@
           // console.log(response.name);
           document.getElementById('user_photo').src = response.picture.data.url;
           document.getElementById('user_name').innerHTML = response.name;
-          document.getElementById("head").innerHTML = "Welcome to MC Senti";
+          document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name', {
             'access_token': 'EAAHgV1PlgJwBAHmhan0V8YJUZBzRelZBN0xymtPHdHNZBAVnH13wepJbZAahslhecTpCs5S1QBGgoepwNg86I5K9EX0d5Flabq5iYUz3vSwyF8G9W7odsZA33YAbzPwmM2z9585ulE62XkwbaCpxLkJdHKEXYZAmi288MGIN4ZAGWbdHykNndRfO6eqZC1g1bLkknAlaZAqsfbQZDZD'
@@ -82,12 +82,13 @@
     <header>
       <h1 id="head">
         MC Senti
-      
-        <div id="user_info">
-          <img id="user_photo"/>
-          <span id="user_name" style="position: relative; bottom: 20px"></span>
-        </div>
       </h1>
+      
+      
+      <div id="user_info">
+        <img id="user_photo"/>
+        <span id="user_name" style="position: relative; bottom: 20px"></span>
+      </div>
         
       
       <p id="recent_posts">
@@ -108,5 +109,9 @@
 <style>
   * {
     overflow-wrap: break-word;
+  }
+  
+  #head, #user_info {
+    text-align: center;
   }
 </style>

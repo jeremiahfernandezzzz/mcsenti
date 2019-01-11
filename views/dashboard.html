@@ -50,14 +50,15 @@
           document.getElementById('user_name').innerHTML = response.name;
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
-        FB.api('/326043571334336/feed?fields=id,message,name', {
-            'access_token': 'EAAHgV1PlgJwBALN41eqhCzs9ZBZAyQwQ0l1QAAYC7rUJT0ZBZChLhsocEUjMszU4mP3OkzpsspLwz3L3dXMB1HJatj2nhS9MoYEKcZAdXv0iMi2EwAGgP46bzYKtrAPm6PMwYBf38eqytytMxZC8P3tT853xhXQVwMYIFRev52lqx7tdoF7Fc9VS3vbgzgYtoZD'
+        FB.api('/326043571334336/feed?fields=id,message,name,comments', {
+            'access_token': 'EAAHgV1PlgJwBAKxcHRzjZCYKMKR2hOaZCnoRXmOcIOI7lL7y7vtJK15Im2AGcDZBRqXobFsZCuHKaG7yA7NBTYIwO8Uu7VpqoAHckRyE5zfRZBv4ibEH8hHUmc69Y1rSqoGM6hP4LwHViEZBscYKDe8A3KupTEK3OwYov1ZAZBx3CuIjVdKb3ZAmvVG3wZC2y0VaIZD'
         }, function(api_response) {
           console.log(api_response);
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           api_response["data"].forEach(function (post){
             // console.log(post["message"]);
             document.getElementById("recent_posts").innerHTML += "<em>" + JSON.stringify(post["message"]) + "</em><br/>";
+            document.getElementById("recent_posts_comments").innerHTML += "<em>" + JSON.stringify(post["comments"]["data"]) + "</em><br/>";
           });
           
         });

@@ -51,7 +51,7 @@
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name,comments', {
-            'access_token': 'EAAHgV1PlgJwBACtenuzRUhR9RdJKIuDjJqfxfUIbi3KAZAPh6CyTyopE8E64VcP8FDUIoTZAG9bE1akqWZB3VhWigfBAj2rblRejgkKCEoZAHrKSDV14ZCBe36kfxrLh8YUNxZBgZAIykXp3YxJxSrpkCT7KvZAZBbB1aQW0Qb2su7UlZAwZC81p7SaUuPAFdOiQZB8ZD'
+            'access_token': 'EAAHgV1PlgJwBAC3ZBnYRzz4ng4MBUhdy4Hlc30vneq2YLXkTXFGhzijNJzPWFWWZBXxPESSRQAZBgMeVpus6Q6gwCZBjw5xlXhNMnWQjj4UFI9AL6glQvGCXf2Sh4ZCkFlWIpyOkEEeYmhZAEovPfvzHmE9kjTxKkkjR4vXOJkcYk9ZBmX8qnb3nRJ2oUdq6m0ZD'
         }, function(api_response) {
           console.log(api_response);
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
@@ -91,10 +91,11 @@
   
   function analyze(message){
     var oReq = new XMLHttpRequest();
-    oReq.onload = console.log(JSON.stringify(oReq.responseText));
+    oReq.onload = window.setTimeout(console.log(JSON.stringify(oReq.responseText)), 3000);
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
     oReq.setRequestHeader("X-RapidAPI-Key", "GJjeiXWiy9msh8PhUc5GY5sarPaPp1hxySTjsnKmViFAeiK8jC");
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    oReq.setRequestHeader("Access-Control-Allow-Origin", "*");
     // oReq.setRequestHeader("text", message);
     // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);

@@ -59,13 +59,16 @@
           if (api_response){
             api_response["data"].forEach(function (post){
               // console.log(post["message"]);
-              document.getElementById("recent_posts").innerHTML += "<em>" + JSON.stringify(post["message"]) + "</em><br/>";
+              document.getElementById("recent_posts").innerHTML += JSON.stringify(post["message"]) + "<br/>";
+              
               if (post["comments"]){
-                post["comments"]["data"].forEach(function(comment){
-                  document.getElementById("recent_posts").innerHTML += "<div style='position: relative; left: 10px;'>";
-                  document.getElementById("recent_posts").innerHTML += JSON.stringify(comment["message"]) + "<br/>";
-                  document.getElementById("recent_posts").innerHTML += "</div>";
-                })
+                  var comments = ""; 
+                  comments += "<div style='position: relative; left: 20px;top'>";  
+                  post["comments"]["data"].forEach(function(comment){
+                    comments += "<em>" + JSON.stringify(comment["message"]) + "</em><br/>";
+                  })
+                  comments += "</div>";
+                  document.getElementById("recent_posts").innerHTML += comments; 
               }
               document.getElementById("recent_posts").innerHTML += "<br/>";
             });
@@ -95,22 +98,18 @@
         MC Senti
       </h1>
       
-      
       <div id="user_info">
         <img id="user_photo"/>
         <span id="user_name" style="position: relative; bottom: 20px"></span>
       </div>
-        
-      
-      <p id="recent_posts">
-        
-      </p>
-      
       
     </header>
 
     <main>
       
+      <p id="recent_posts">
+        
+      </p>
       
     </main>
 

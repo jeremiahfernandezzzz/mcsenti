@@ -55,14 +55,21 @@
         }, function(api_response) {
           console.log(api_response);
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
-          api_response["data"].forEach(function (post){
-            // console.log(post["message"]);
-            document.getElementById("recent_posts").innerHTML += "<em>" + JSON.stringify(post["message"]) + "</em><br/>";
-            post["comments"]["data"].forEach(function(comment){
-              document.getElementById("recent_posts_comments").innerHTML += JSON.stringify(comment["message"]) + <br/>";
-            })
-            document.getElementById("recent_posts").innerHTML += "<br/>";
-          });
+          
+          if (api_response){
+            api_response["data"].forEach(function (post){
+              // console.log(post["message"]);
+              document.getElementById("recent_posts").innerHTML += "<em>" + JSON.stringify(post["message"]) + "</em><br/>";
+              if (post["comments"]){
+                post["comments"]["data"].forEach(function(comment){
+                  document.getElementById("recent_posts").innerHTML += "<div style='position: relative; left: 10px;'>";
+                  document.getElementById("recent_posts").innerHTML += JSON.stringify(comment["message"]) + "<br/>";
+                  document.getElementById("recent_posts").innerHTML += "</div>";
+                })
+              }
+              document.getElementById("recent_posts").innerHTML += "<br/>";
+            });
+          }
           
         });
       } else {

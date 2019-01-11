@@ -16,6 +16,10 @@ app.get('/dashboard', function(request, response){
   response.sendFile(__dirname + '/views/dashboard.html');
 })
 
+app.get('/privacy', function(request, response){
+  response.sendFile(__dirname + '/views/privacy.html');
+})
+
 app.post('/test', function(request, response){
   
   var output = net.run(request.body.input);

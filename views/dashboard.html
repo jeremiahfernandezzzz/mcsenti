@@ -67,8 +67,8 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","");
                     // console.log(commentasd);
-                     post_comments += "<em>" + comment + "</em><br/>";
                      post_comments += "<button onclick='analyze(" + comment + ")'>analyze</button>";
+                     post_comments += "<em>" + comment + "</em><br/>";
                   })
                    post_comments += "</div>";
                   document.getElementById("recent_posts").innerHTML +=  post_comments; 
@@ -85,12 +85,12 @@
     })
   };
 
-  var oReq = new XMLHttpRequest();
-  oReq.addEventListener("load", console.log(oReq.responseText));
   
   function analyze(message){
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", console.log(oReq.responseText));
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
-    oReq.setRequestHeader("X-RapidAPI-Key", "c9RJz3tL3wmsh23BhmWSiKdlmC6Ap1UiUcajsni9hhX7PbXFeF");
+    oReq.setRequestHeader("X-RapidAPI-Key", "GJjeiXWiy9msh8PhUc5GY5sarPaPp1hxySTjsnKmViFAeiK8jC");
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     // oReq.setRequestHeader("text", message);
     // console.log(typeof(oReq.send()));

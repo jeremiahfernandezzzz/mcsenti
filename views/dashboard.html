@@ -91,7 +91,7 @@
   
   function analyze(message){
     var oReq = new XMLHttpRequest();
-    oReq.onload = console.log(oReq.responseText);
+    oReq.onload = console.log(JSON.stringify(oReq.responseText));
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
     oReq.setRequestHeader("X-RapidAPI-Key", "GJjeiXWiy9msh8PhUc5GY5sarPaPp1hxySTjsnKmViFAeiK8jC");
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

@@ -58,7 +58,10 @@
           api_response["data"].forEach(function (post){
             // console.log(post["message"]);
             document.getElementById("recent_posts").innerHTML += "<em>" + JSON.stringify(post["message"]) + "</em><br/>";
-            document.getElementById("recent_posts_comments").innerHTML += "<em>" + JSON.stringify(post["comments"]["data"]) + "</em><br/>";
+            post["comments"]["data"].forEach(function(comment){
+              document.getElementById("recent_posts_comments").innerHTML += JSON.stringify(comment["message"]) + <br/>";
+            })
+            document.getElementById("recent_posts").innerHTML += "<br/>";
           });
           
         });

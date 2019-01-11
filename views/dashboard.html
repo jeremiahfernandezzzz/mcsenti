@@ -65,8 +65,10 @@
                   var comments = ""; 
                   comments += "<div style='position: relative; padding: 20px;'>";  
                   post["comments"]["data"].forEach(function(comment){
-                    comments += "<em>" + JSON.stringify(comment["message"]) + "</em><br/>";
-                    comments += "<button onclick=analyze(" + JSON.stringify(comment["message"])  + ")>analyze</button>";
+                    var comment = JSON.stringify(comment["message"]);
+                    console.log(comment);
+                    comments += "<em>" + comment + "</em><br/>";
+                    comments += "<button onclick=\"analyze('" + comment + "')\">analyze</button>";
                   })
                   comments += "</div>";
                   document.getElementById("recent_posts").innerHTML += comments; 

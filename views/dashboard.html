@@ -51,7 +51,7 @@
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name,comments', {
-            'access_token': 'EAAHgV1PlgJwBAKxcHRzjZCYKMKR2hOaZCnoRXmOcIOI7lL7y7vtJK15Im2AGcDZBRqXobFsZCuHKaG7yA7NBTYIwO8Uu7VpqoAHckRyE5zfRZBv4ibEH8hHUmc69Y1rSqoGM6hP4LwHViEZBscYKDe8A3KupTEK3OwYov1ZAZBx3CuIjVdKb3ZAmvVG3wZC2y0VaIZD'
+            'access_token': 'EAAHgV1PlgJwBACtenuzRUhR9RdJKIuDjJqfxfUIbi3KAZAPh6CyTyopE8E64VcP8FDUIoTZAG9bE1akqWZB3VhWigfBAj2rblRejgkKCEoZAHrKSDV14ZCBe36kfxrLh8YUNxZBgZAIykXp3YxJxSrpkCT7KvZAZBbB1aQW0Qb2su7UlZAwZC81p7SaUuPAFdOiQZB8ZD'
         }, function(api_response) {
           console.log(api_response);
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
@@ -66,7 +66,7 @@
                   comments += "<div style='position: relative; padding: 20px;'>";  
                   post["comments"]["data"].forEach(function(comment){
                     comments += "<em>" + JSON.stringify(comment["message"]) + "</em><br/>";
-                    comments += "<button onclick='analyze(\'" + JSON.stringify(comment["message"])  + "\')'>analyze</button>";
+                    comments += "<button onclick=analyze(" + JSON.stringify(comment["message"])  + ")>analyze</button>";
                   })
                   comments += "</div>";
                   document.getElementById("recent_posts").innerHTML += comments; 

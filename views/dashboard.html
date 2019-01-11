@@ -59,7 +59,9 @@
           if (api_response){
             api_response["data"].forEach(function (post){
               // console.log(post["message"]);
-              document.getElementById("recent_posts").innerHTML += JSON.stringify(post["message"]) + "<br/>";
+              var parent_post = "<div style='border: dotted'>" 
+              parent_post += JSON.stringify(post["message"]) + "<br/>";
+              // document.getElementById("recent_posts").innerHTML +=;
               
               if (post["comments"]){
                   var post_comments = ""; 
@@ -67,14 +69,15 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","");
                     // console.log(commentasd);
-                     post_comments += "<button onclick='analyze(" + comment + ")'>analyze</button>";
+                     post_comments += "<button onclick='analyze(" + comment + ")'>analyze</button>|";
                      post_comments += "<em>" + comment + "</em><br/>";
                   })
                    post_comments += "</div>";
-                  document.getElementById("recent_posts").innerHTML +=  post_comments; 
+                   parent_post +=  post_comments; 
               }
               
-              document.getElementById("recent_posts").innerHTML += "<br/>";
+              parent_post += "<<br/>";
+              document.getElementById("recent_posts").innerHTML += parent_post;
             });
           }
           

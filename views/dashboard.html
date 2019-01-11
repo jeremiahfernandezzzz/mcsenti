@@ -59,7 +59,7 @@
           if (api_response){
             api_response["data"].forEach(function (post){
               // console.log(post["message"]);
-              var parent_post = "<div style='border: dotted'>" 
+              var parent_post = "<div style='border: dotted 2px; margin: 10px'>" 
               parent_post += JSON.stringify(post["message"]) + "<br/>";
               // document.getElementById("recent_posts").innerHTML +=;
               
@@ -76,7 +76,7 @@
                    parent_post +=  post_comments; 
               }
               
-              parent_post += "<<br/>";
+              parent_post += "</div><br/>";
               document.getElementById("recent_posts").innerHTML += parent_post;
             });
           }

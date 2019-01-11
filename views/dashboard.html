@@ -91,7 +91,7 @@
   
   function analyze(message){
     var oReq = new XMLHttpRequest();
-    oReq.onload = window.setTimeout(console.log(JSON.stringify(oReq.responseText)), 3000);
+    // oReq.onload = window.setTimeout(console.log(JSON.stringify(oReq.responseText)), 3000);
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
     oReq.setRequestHeader("X-RapidAPI-Key", "GJjeiXWiy9msh8PhUc5GY5sarPaPp1hxySTjsnKmViFAeiK8jC");
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -99,6 +99,12 @@
     // oReq.setRequestHeader("text", message);
     // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);
+    
+    oReq.onreadystatechange = function() {
+      if (oReq.readyState == 4 && oReq.status == 200) {
+        console.log(oReq.responseText);
+      }
+    }
     // alert(message);
   }
     

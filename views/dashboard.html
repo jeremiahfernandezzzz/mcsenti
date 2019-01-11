@@ -62,16 +62,16 @@
               document.getElementById("recent_posts").innerHTML += JSON.stringify(post["message"]) + "<br/>";
               
               if (post["comments"]){
-                  var comments = ""; 
-                  comments += "<div style='position: relative; padding: 20px;'>";  
+                  var post_comments = ""; 
+                  post_comments += "<div style='position: relative; padding: 20px;'>";  
                   post["comments"]["data"].forEach(function(comment){
-                    var commentasd = JSON.stringify(comment["message"]).replace("'","");
-                    console.log(commentasd);
-                    comments += "<em>" + commentasd + "</em><br/>";
-                    comments += "<button onclick='analyze('" + commentasd + "')'>analyze</button>";
+                    var comment = JSON.stringify(comment["message"]).replace("'","");
+                    // console.log(commentasd);
+                     post_comments += "<em>" + comment + "</em><br/>";
+                     post_comments += "<button onclick='analyze(" + comment + ")'>analyze</button>";
                   })
-                  comments += "</div>";
-                  document.getElementById("recent_posts").innerHTML += comments; 
+                   post_comments += "</div>";
+                  document.getElementById("recent_posts").innerHTML +=  post_comments; 
               }
               
               document.getElementById("recent_posts").innerHTML += "<br/>";
@@ -86,14 +86,14 @@
   };
     
   function analyze(message){
-    // var oReq = new XMLHttpRequest();
-    // oReq.addEventListener("load", reqListener);
-    // oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
-    // oReq.setRequestHeader("X-RapidAPI-Key", "c9RJz3tL3wmsh23BhmWSiKdlmC6Ap1UiUcajsni9hhX7PbXFeF");
-    // oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    // oReq.setRequestHeader("text", "I am not really happy");
-    // alert(oReq.send());
-    alert(message);
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
+    oReq.setRequestHeader("X-RapidAPI-Key", "c9RJz3tL3wmsh23BhmWSiKdlmC6Ap1UiUcajsni9hhX7PbXFeF");
+    oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    oReq.setRequestHeader("text", message);
+    alert(oReq.send());
+    // alert(message);
   }
     
     

@@ -84,15 +84,17 @@
       }
     })
   };
-    
+
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", console.log(oReq.responseText));
+  
   function analyze(message){
-    var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener);
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
     oReq.setRequestHeader("X-RapidAPI-Key", "c9RJz3tL3wmsh23BhmWSiKdlmC6Ap1UiUcajsni9hhX7PbXFeF");
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    oReq.setRequestHeader("text", message);
-    alert(oReq.send());
+    // oReq.setRequestHeader("text", message);
+    // console.log(typeof(oReq.send()));
+    oReq.send("text=" + message);
     // alert(message);
   }
     

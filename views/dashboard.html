@@ -106,12 +106,12 @@
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     
+    document.addEventListener("click", function(){document.getElementById("analysis_modal").style = "";
+                                                  document.getElementById("modal_background").style = "";
+                                                  document.getElementById("analysis_modal").innerHTML = "";});
     
     oReq.onreadystatechange = function() {
         document.getElementById("modal_background").innerHTML = "";
-        document.addEventListener("click", function(){document.getElementById("analysis_modal").style = "";
-                                                      document.getElementById("modal_background").style = "";
-                                                      document.getElementById("analysis_modal").innerHTML = "";});
       if (oReq.readyState == 4 && oReq.status == 200) {
         document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
       } else {

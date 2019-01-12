@@ -88,6 +88,12 @@
     })
   };
 
+  function clearModal(){
+      document.getElementById("analysis_modal").style = "";
+      document.getElementById("modal_background").style = "";
+      document.getElementById("analysis_modal").innerHTML = "";
+      document.getElementById("modal_background").innerHTML = "";
+  }
   
   function analyze(message){
     var oReq = new XMLHttpRequest();
@@ -107,10 +113,6 @@
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
     
-        document.addEventListener("click", function(){document.getElementById("analysis_modal").style = "";
-                                                      document.getElementById("modal_background").style = "";
-                                                      document.getElementById("analysis_modal").innerHTML = "asd";
-                                                      document.getElementById("modal_background").innerHTML = "asd";});
 
       if (oReq.readyState == 4 && oReq.status == 200) {
         document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
@@ -155,6 +157,7 @@
       </div>
 
       <div id="analysis_modal">
+        <button onclick="clearModal">ok</button>
       </div>
       
     </main>

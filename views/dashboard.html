@@ -51,7 +51,7 @@
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name,comments', {
-            'access_token': 'EAAHgV1PlgJwBADaM1cRenASgtxTklZAJ2sM463FLgBGKC2ZBzZCu4oZAZBWs5bUscZCFZBSGWgRZAljDzlMr2ZBKZA77bM8mCNHkK5vq03FeWk8b5BZAieImZBZBVYeKJ5zCnLvIjqZCdDvbCdpp9E3ZBOth6IOR3CBSnUxUwGvMxaalNniMR8uZB2TR6eLBUanZArA7hlCUZD'
+            'access_token': 'EAAHgV1PlgJwBAMmsNyEmlBZCupNYpvKiXUuWCtZCGdkI1QlZCHBUdqc1b9ZCZAXlPhZAcoyLVZB9E4kB67klT77Iz9RpWpx9KB3IypcaVQPPXSfYtk5P6qH2BgUtGBylvZAwdzHFAdIA6bqdM0VuaHAjqTKgMSaDdHArMbaZBCmgifPdZBu0CJKQFwYhxcnral1ZAoZD'
         }, function(api_response) {
           console.log(api_response);
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
@@ -115,9 +115,9 @@
     
 
       if (oReq.readyState == 4 && oReq.status == 200) {
-        document.getElementById("analysis_modal").innerHTML = "" + JSON.stringify(oReq.responseText) + "</pre>";
+        document.getElementById("analysis_modal").innerHTML = oReq.responseText;
       } else {
-        document.getElementById("analysis_modal").innerHTML = "Something went wrong<br/>" + JSON.stringify(oReq.responseText);
+        document.getElementById("analysis_modal").innerHTML = "Something went wrong<br/>" + oReq.responseText;
       }
         document.getElementById("analysis_modal").innerHTML += "<br/><button onclick=\"clearModal()\">ok</button>";
       

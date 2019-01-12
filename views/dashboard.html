@@ -115,10 +115,13 @@
     
 
       if (oReq.readyState == 4 && oReq.status == 200) {
-        document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
+        document.getElementById("analysis_modal").innerHTML = "" + JSON.stringify(oReq.responseText) + "</pre>";
       } else {
-        document.getElementById("analysis_modal").innerHTML = "Something went wrong";
+        document.getElementById("analysis_modal").innerHTML = "Something went wrong<br/>" + JSON.stringify(oReq.responseText);
       }
+        document.getElementById("analysis_modal").innerHTML += "<br/><button onclick=\"clearModal()\">ok</button>";
+      
+       
     }
     // alert(message);
   }
@@ -157,7 +160,6 @@
       </div>
 
       <div id="analysis_modal">
-        <button onclick="clearModal">ok</button>
       </div>
       
     </main>

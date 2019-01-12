@@ -100,14 +100,20 @@
     // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);
     
+    document.getElementById("modal_background").style = "position: absolute; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; opacity: .5; background-color: grey;";
+    
+    document.getElementById("modal_background").innerHTML = "Please wait";
+    
     oReq.onreadystatechange = function() {
-      if (oReq.readyState == 4 && oReq.status == 200) {
-        console.log(oReq.responseText);
-        document.getElementById("modal_background").style = "position: absolute; visibility: visible; width: 100%; height: 100%; opacity: .5; background-color: grey;";
-        document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
         document.getElementById("analysis_modal").style = "position: absolute; visibility: visible; top: 45vh; width: 70vw; border: dotted 5px; background-color: white;";
-        document.addEventListener("click", function(){document.getElementById("analysis_modal").style = ""});
-      }
+        document.addEventListener("click", function(){document.getElementById("analysis_modal").style = "";
+                                                      document.getElementById("modal_background").style = ""});
+      if (oReq.readyState == 4 && oReq.status == 200) {
+        document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
+      } else {
+        document.getElementById("analysis_modal").innerHTML = "Something went wrong";
+      
+      
     }
     // alert(message);
   }
@@ -144,7 +150,7 @@
       
       <div id="modal_background">
       </div>
-      
+
       <div id="analysis_modal">
       </div>
       

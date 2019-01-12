@@ -69,8 +69,7 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","");
                     // console.log(commentasd);
-                     post_comments += "<button onclick='analyze(" + comment + ")'>analyze</button>|";
-                     post_comments += "<em>" + comment + "</em><br/>";
+                     post_comments += "<button onclick='analyze(" + comment + ")'>" + comment + "</button><br/>";
                   })
                    post_comments += "</div>";
                    parent_post +=  post_comments; 

@@ -103,8 +103,10 @@
     oReq.onreadystatechange = function() {
       if (oReq.readyState == 4 && oReq.status == 200) {
         console.log(oReq.responseText);
+        document.getElementsByTagName("body").style = "background-color: grey;"
         document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
-        document.getElementById("analysis_modal").style = "position: absolute; visibility: visible; top: 45vh; border: dotted 5px; background-color: grey;";
+        document.getElementById("analysis_modal").style = "position: absolute; visibility: visible; top: 45vh; width: 70vw; border: dotted 5px; background-color: white;";
+        document.addEventListener("click", function(){document.getElementById("analysis_modal").style = ""});
       }
     }
     // alert(message);

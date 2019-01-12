@@ -105,13 +105,13 @@
     document.getElementById("analysis_modal").style = "position: absolute; visibility: visible; top: 45vh; width: 70vw; border: dotted 5px; background-color: white;";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
-    
-    document.addEventListener("click", function(){document.getElementById("analysis_modal").style = "";
-                                                  document.getElementById("modal_background").style = "";
-                                                  document.getElementById("analysis_modal").innerHTML = "";});
-    
     oReq.onreadystatechange = function() {
-        document.getElementById("modal_background").innerHTML = "";
+    
+        document.addEventListener("click", function(){document.getElementById("analysis_modal").style = "";
+                                                      document.getElementById("modal_background").style = "";
+                                                      document.getElementById("analysis_modal").innerHTML = "asd";
+                                                      document.getElementById("modal_background").innerHTML = "asd";});
+
       if (oReq.readyState == 4 && oReq.status == 200) {
         document.getElementById("analysis_modal").innerHTML = JSON.stringify(oReq.responseText);
       } else {

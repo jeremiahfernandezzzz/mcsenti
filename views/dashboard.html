@@ -70,9 +70,10 @@
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s]/gi, '');
                     console.log(comment);
                     if (comment.length > 80) {
-                      comment = comment.substring(0, 80) + "...";
+                      post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
+                    } else {
+                       post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
                     }
-                     post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>";
                   })
                    post_comments += "</div>";
                    parent_post +=  post_comments; 
@@ -121,9 +122,12 @@
     
 
       if (oReq.readyState == 4 && oReq.status == 200) {
-        document.getElementById("analysis_modal").innerHTML = oReq.responseText;
+        console.log(oReq.responseText);
+        var analysis = "";
+        analysis = "<strong>comment:</strong><br/>" + JSON.parse(oReq.responseText)["text"] + "<br/><br/><strong>analysis:</strong><br/><em>positive:<em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral</em>: " + JSON.parse(oReq.responseText)["mid_percent"];
+        document.getElementById("analysis_modal").innerHTML = analysis;
       } else {
-        document.getElementById("analysis_modal").innerHTML = "Something went wrong<br/>" + oReq.responseText;
+        document.getElementById("analysis_modal").innerHTML = "Something went wrong.<br/>" + oReq.responseText;
       }
         document.getElementById("analysis_modal").innerHTML += "<br/><br/><button onclick=\"clearModal()\">ok</button>";
       

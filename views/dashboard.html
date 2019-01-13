@@ -67,9 +67,9 @@
                   var post_comments = ""; 
                   post_comments += "<div style='position: relative; padding: 40px; text-align: left'>";  
                   post["comments"]["data"].forEach(function(comment){
-                    var comment = JSON.stringify(comment["message"]).replace("'","");
-                    // console.log(commentasd);
-                     post_comments += "<button onclick='analyze(" + encodeURI(comment) + ")'>" + encodeURI(comment) + "</button><br/>";
+                    var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s]/gi, '');
+                    console.log(comment);
+                     post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>";
                   })
                    post_comments += "</div>";
                    parent_post +=  post_comments; 

@@ -69,6 +69,9 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s]/gi, '');
                     console.log(comment);
+                    if (comment.length > 80) {
+                      comment = comment.substring(0, 80) + "...";
+                    }
                      post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>";
                   })
                    post_comments += "</div>";
@@ -111,7 +114,7 @@
     
     document.getElementById("modal_background").style = "position: fixed; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; opacity: .5; text-align: center; top: 0px; left: 0px";
     
-    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 2px; background-color: white; display: inline-block; ";
+    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 2px; background-color: white; display: inline-block; padding: 20px;";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
@@ -122,7 +125,7 @@
       } else {
         document.getElementById("analysis_modal").innerHTML = "Something went wrong<br/>" + oReq.responseText;
       }
-        document.getElementById("analysis_modal").innerHTML += "<br/><button onclick=\"clearModal()\">ok</button>";
+        document.getElementById("analysis_modal").innerHTML += "<br/><br/><button onclick=\"clearModal()\">ok</button>";
       
        
     }

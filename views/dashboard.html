@@ -55,8 +55,8 @@
           
           global_response = api_response;
           
-          document.getElementById("recent_posts").innerHTML = "<button onclick='search()'>search</button><input id='search_bar' type='text'/>";
-          document.getElementById("recent_posts").innerHTML += "<strong>Recent Posts</strong><br/><br/>";
+          document.getElementById("user_info").innerHTML += "<button onclick='search()'>search</button><input id='search_bar' type='text'/>";
+          document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
           if (api_response["data"]){
             api_response["data"].forEach(function (post){
@@ -120,8 +120,6 @@
 
             parent_post += "</div><br/>";
             document.getElementById("recent_posts").innerHTML += parent_post;
-            } else {
-              document.getElementById("recent_posts").innerHTML = "No results found."
             }
           });
     }

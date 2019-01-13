@@ -67,10 +67,10 @@
                   var post_comments = ""; 
                   post_comments += "<div style='position: relative; padding: 40px; text-align: left'>";  
                   post["comments"]["data"].forEach(function(comment){
-                    var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s]/gi, '');
+                    var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
                     console.log(comment);
                     if (comment.length > 80) {
-                      post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
+                      post_comments += "<button style='font-size:10pt; width:'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
                        post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
                     }
@@ -115,7 +115,7 @@
     
     document.getElementById("modal_background").style = "position: fixed; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; opacity: .5; text-align: center; top: 0px; left: 0px";
     
-    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 2px; background-color: white; display: inline-block; padding: 20px;";
+    document.getElementById("analysis_modal").style = "position: relative;  top: 25vh; width: 70vw; visibility: visible; border: dotted 2px; background-color: white; display: inline-block; padding: 20px;";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
@@ -124,7 +124,7 @@
       if (oReq.readyState == 4 && oReq.status == 200) {
         console.log(oReq.responseText);
         var analysis = "";
-        analysis = "<strong>comment:</strong><br/>" + JSON.parse(oReq.responseText)["text"] + "<br/><br/><strong>analysis:</strong><br/><em>positive:<em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral</em>: " + JSON.parse(oReq.responseText)["mid_percent"];
+        analysis = "<strong>comment:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>analysis:</strong><br/><em>positive:</em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral:</em> " + JSON.parse(oReq.responseText)["mid_percent"];
         document.getElementById("analysis_modal").innerHTML = analysis;
       } else {
         document.getElementById("analysis_modal").innerHTML = "Something went wrong.<br/>" + oReq.responseText;
@@ -164,6 +164,7 @@
     <main>
       
       <div id="recent_posts" style="text-align: center">
+        Please wait
       </div>
 
       <div id="modal_background">

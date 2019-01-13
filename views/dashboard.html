@@ -65,11 +65,11 @@
               
               if (post["comments"]){
                   var post_comments = ""; 
-                  post_comments += "<div style='display:block; position: relative; padding: 40px; text-align: left'>";  
+                  post_comments += "<div style='position: relative; padding: 40px; text-align: left'>";  
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","");
                     // console.log(commentasd);
-                     post_comments += "<button onclick='analyze(" + comment + ")'>" + comment + "</button>";
+                     post_comments += "<button onclick='analyze(" + comment + ")'>" + comment + "</button><br/>";
                   })
                    post_comments += "</div>";
                    parent_post +=  post_comments; 
@@ -105,9 +105,9 @@
     // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);
     
-    document.getElementById("modal_background").style = "position: absolute; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; opacity: .5; text-align: center; top: 0px; left: 0px";
+    document.getElementById("modal_background").style = "position: fixed; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; opacity: .5; text-align: center; top: 0px; left: 0px";
     
-    document.getElementById("analysis_modal").style = "position: absolute;  top: 45vh; width: 70vw; visibility: visible; border: dotted 5px; background-color: white; display: inline-block; ";
+    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 5px; background-color: white; display: inline-block; ";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
@@ -155,7 +155,7 @@
       <div id="recent_posts" style="text-align: center">
       </div>
 
-      <div id="modal_background" style="position: absolute;">
+      <div id="modal_background">
         <div id="analysis_modal">
         </div>
       </div>

@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Welcome to Glitch!</title>
+    <title>MC Senti</title>
     <meta name="description" content="A cool thing made with Glitch">
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
@@ -93,6 +93,10 @@
     })
   };
 
+  function search(){
+    alert(document.getElementById("search_bar").innerHTML);
+  }
+    
   function clearModal(){
       document.getElementById("analysis_modal").innerHTML = "";
       document.getElementById("analysis_modal").style = "";
@@ -164,7 +168,7 @@
 
     <br/>
     <main>
-      
+      <input id="search_bar" type="text"/><button onclick="search()"></button>
       <div id="recent_posts" style="text-align: center">
         Please wait
       </div>

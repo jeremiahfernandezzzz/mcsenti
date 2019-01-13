@@ -65,14 +65,14 @@
               
               if (post["comments"]){
                   var post_comments = ""; 
-                  post_comments += "<div style='position: relative; padding: 40px; text-align: left'>";  
+                  post_comments += "<div style='position: relative; padding: 40px; text-align: center'>";  
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
                     console.log(comment);
                     if (comment.length > 80) {
-                      post_comments += "<button style='font-size:10pt; width:'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
-                       post_comments += "<button onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
+                       post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
                     }
                   })
                    post_comments += "</div>";

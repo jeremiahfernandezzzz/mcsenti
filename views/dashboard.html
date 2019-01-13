@@ -39,6 +39,7 @@
     FB.AppEvents.logPageView();   
       
     
+    var global_response;
     
     FB.getLoginStatus(function(response){
       console.log(response);
@@ -53,11 +54,45 @@
         FB.api('/326043571334336/feed?fields=id,message,name,comments', {
             'access_token': 'EAAHgV1PlgJwBALOSewng0H1EuWcrTB3iqJ7Nj3IAMZAWUxrO6937Mf4b399SjVsSeJiDmwBWZAVfvcXk0qcJEHXD8he2yBf3vh9Wq2MRPgyRZAaTLoKU2R8J52uV7Jpn0PViuNuKlhAv3cAfiyxoTlYBPx7dDZA54aAZAlFmbL6yArZAjl8SRiLoW0Bwja1PQZD'
         }, function(api_response) {
+          
+          
+  function search(){
+      global_response.forEach(function (post){
+        if (JSON.stringify(post["message"]).indexOf(document.getElementById("search_bar").value) != -1){    
+        var parent_post = "<div style='border: dotted 2px; margin: 10px'>" 
+            parent_post += "<br/>" + JSON.stringify(post["message"]);
+            // document.getElementById("recent_posts").innerHTML +=;
+
+          if (post["comments"]){
+              var post_comments = ""; 
+              post_comments += "<div style='position: relative; padding: 40px; text-align: center'>";  
+              post["comments"]["data"].forEach(function(comment){
+                var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
+                console.log(comment);
+                if (comment.length > 80) {
+                  post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
+                } else {
+                   post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
+                }
+              })
+               post_comments += "</div>";
+               parent_post +=  post_comments; 
+          }
+
+          parent_post += "</div><br/>";
+          document.getElementById("recent_posts").innerHTML += parent_post;
+          } else {
+            document.getElementById("recent_posts").innerHTML = "No results found."
+          }
+        });
+  }
+          
           console.log(api_response);
           document.getElementById("recent_posts").innerHTML = "<button onclick='search()'>search</button><input id='search_bar' type='text'/>";
           document.getElementById("recent_posts").innerHTML += "<strong>Recent Posts</strong><br/><br/>";
           
           if (api_response["data"]){
+            global_response = api_response["data"];
             api_response["data"].forEach(function (post){
               // console.log(post["message"]);
               var parent_post = "<div style='border: dotted 2px; margin: 10px'>" 
@@ -94,39 +129,6 @@
     })
   };
 
-  function search(){
-    alert(document.getElementById("search_bar").value);
-    
-        if (api_response["data"]){
-      api_response["data"].forEach(function (post){
-        // console.log(post["message"]);
-        var parent_post = "<div style='border: dotted 2px; margin: 10px'>" 
-        parent_post += "<br/>" + JSON.stringify(post["message"]);
-        // document.getElementById("recent_posts").innerHTML +=;
-
-        if (post["comments"]){
-            var post_comments = ""; 
-            post_comments += "<div style='position: relative; padding: 40px; text-align: center'>";  
-            post["comments"]["data"].forEach(function(comment){
-              var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
-              console.log(comment);
-              if (comment.length > 80) {
-                post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
-              } else {
-                 post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
-              }
-            })
-             post_comments += "</div>";
-             parent_post +=  post_comments; 
-        }
-
-        parent_post += "</div><br/>";
-        document.getElementById("recent_posts").innerHTML += parent_post;
-      });
-    } else {
-      document.getElementById("recent_posts").innerHTML = "Something went wrong."
-    }
-  }
     
   function clearModal(){
       document.getElementById("analysis_modal").innerHTML = "";

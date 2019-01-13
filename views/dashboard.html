@@ -96,8 +96,10 @@
   };
 
     function search(){
+      document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
+      
         global_response["data"].forEach(function (post){
-          if (JSON.stringify(post["message"]).indexOf(document.getElementById("search_bar").value) != -1){    
+          if ( JSON.stringify(post["message"]).includes(document.getElementById("search_bar").value) ){    
           var parent_post = "<div style='border: dotted 2px; margin: 10px'>" 
               parent_post += "<br/>" + JSON.stringify(post["message"]);
               // document.getElementById("recent_posts").innerHTML +=;

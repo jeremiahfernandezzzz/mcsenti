@@ -107,7 +107,7 @@
     
     document.getElementById("modal_background").style = "position: absolute; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; opacity: .5; background-color: grey;";
     
-    document.getElementById("analysis_modal").style = "position: absolute; visibility: visible; top: 45vh; width: 70vw; border: dotted 5px; background-color: white;";
+    document.getElementById("analysis_modal").style = "visibility: visible; top: 45vh; width: 70vw; border: dotted 5px; background-color: white;";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
@@ -143,22 +143,24 @@
       </h1>
       
       <div id="user_info">
-        <img id="user_photo"/>
+        <img id="user_photo" style="border-radius: 15px;"/>
         <span id="user_name" style="position: relative; bottom: 20px"></span>
       </div>
       
     </header>
 
-    <div id="recent_posts" style="display: inline-block">
-    </div>
-
-    <div id="modal_background">
-    </div>
-
-    <div id="analysis_modal">
-    </div>
-    
+    <br/>
     <main>
+      
+      <div id="recent_posts" style="display: inline-block">
+      </div>
+
+      <div id="modal_background" style="display: inline-block">
+        <div id="analysis_modal">
+        </div>
+      </div>
+
+
     </main>
 
   </body>
@@ -167,9 +169,9 @@
 <style>
   * {
     overflow-wrap: break-word;
+    text-align: center;
   }
   
   #head, #user_info {
-    text-align: center;
   }
 </style>

@@ -105,9 +105,9 @@
     // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);
     
-    document.getElementById("modal_background").style = "position: absolute; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; display: inline-block";
+    document.getElementById("modal_background").style = "position: absolute; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; text-align: center";
     
-    document.getElementById("analysis_modal").style = "position: absolute;  top: 45vh; width: 70vw; visibility: visible; border: dotted 5px; background-color: white";
+    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 5px; background-color: white; display: inline-block";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
@@ -155,7 +155,7 @@
       <div id="recent_posts" style="display: inline-block">
       </div>
 
-      <div id="modal_background" style="display: inline-block;">
+      <div id="modal_background" style="">
         <div id="analysis_modal">
         </div>
       </div>

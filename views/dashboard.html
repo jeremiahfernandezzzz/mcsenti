@@ -90,8 +90,7 @@
   function clearModal(){
       document.getElementById("analysis_modal").style = "";
       document.getElementById("modal_background").style = "";
-      document.getElementById("analysis_modal").innerHTML = "";
-      document.getElementById("modal_background").innerHTML = "";
+      document.getElementById("modal_container").style = "";
   }
   
   function analyze(message){
@@ -105,9 +104,13 @@
     // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);
     
+  
+    
+    document.getElementById("modal_container").style = "position: fixed; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; text-align: center; top: 0px; left: 0px";
+    
     document.getElementById("modal_background").style = "position: fixed; visibility: visible; top: 0px; left: 0px; width: 100%; height: 100%; background-color: grey; opacity: .5; text-align: center; top: 0px; left: 0px";
     
-    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 5px; background-color: white; display: inline-block; ";
+    document.getElementById("analysis_modal").style = "position: relative;  top: 45vh; width: 70vw; visibility: visible; border: dotted 2px; background-color: white; display: inline-block; ";
     
     document.getElementById("analysis_modal").innerHTML = "Please wait";
     oReq.onreadystatechange = function() {
@@ -156,11 +159,12 @@
       </div>
 
       <div id="modal_background">
-        <div id="analysis_modal">
-        </div>
+        
       </div>
 
-      <div >
+      <div id="modal_container">
+        <div id="analysis_modal">
+        </div>
       </div>
     </main>
 

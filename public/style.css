@@ -1,8 +1,14 @@
 /* styles */
 /* called by your view template */
 
+@font-face {
+  font-family: "Century Gothic";
+  src: "https://cdn.glitch.com/b17814a0-677b-436c-8cca-8776e3e38f32%2FCentury%20Gothic.ttf?1547506290386";
+}
+
 * {
   box-sizing: border-box;
+  font-family: "Century Gothic";
 }
 
 body {

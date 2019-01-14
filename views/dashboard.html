@@ -103,9 +103,9 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
                     if (comment.length > 80) {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\", \"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
-                       post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
+                       post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + ", " + comment + "\")'>" + comment + "</button><br/>"; 
                     }
                   })
                    post_comments += "</div>";
@@ -165,7 +165,7 @@
       document.getElementById("modal_container").style = "";
   }
   
-  function analyze(message){
+  function analyze(parent_post, message){
     var oReq = new XMLHttpRequest();
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
     oReq.setRequestHeader("X-RapidAPI-Key", "GJjeiXWiy9msh8PhUc5GY5sarPaPp1hxySTjsnKmViFAeiK8jC");
@@ -187,7 +187,7 @@
 
       if (oReq.readyState == 4 && oReq.status == 200) {
         var analysis = "";
-        analysis = "<strong>post:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>comment:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>analysis:</strong><br/><em>positive:</em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral:</em> " + JSON.parse(oReq.responseText)["mid_percent"];
+        analysis = "<strong>post:</strong><br/><em>" + parent_post + "</em><br/><br/><strong>comment:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>analysis:</strong><br/><em>positive:</em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral:</em> " + JSON.parse(oReq.responseText)["mid_percent"];
         document.getElementById("analysis_modal").innerHTML = analysis;
       } else {
         document.getElementById("analysis_modal").innerHTML = "Something went wrong.<br/>";

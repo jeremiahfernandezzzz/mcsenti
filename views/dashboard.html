@@ -51,7 +51,7 @@
           
           global_response = api_response;
           
-          document.getElementById("user_info").innerHTML += "<form><input id='search_bar' type='text'/><input type='datetime-local'><button onclick='search()'>search</button></form>";
+          document.getElementById("user_info").innerHTML += "<form><input id='search_bar' type='text'/>from <input id='search_from' type='datetime-local'>to<input id='search_to' type='datetime-local'><button onclick='search()'>search</button></form>";
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
           clearModal();
@@ -96,6 +96,8 @@
   };
 
     function search(){
+      alert(Date.parse(document.getElementById("search_from").value));
+      alert(Date.parse(document.getElementById("search_to").value));
       document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
       
         global_response["data"].forEach(function (post){

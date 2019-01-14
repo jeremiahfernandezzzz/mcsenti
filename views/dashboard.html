@@ -73,7 +73,7 @@
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name,comments,created_time', {
-            'access_token': 'EAAHgV1PlgJwBAAbfVsNXXZBZCuZCXtMDaC1cI9HyZB3vUWql5kpm9HBxzbZCopE2ZCwW7EG90RylpGjPS9P14d48ySjDLYrJeVZCEDPFiZCvMhZAtt1SZBFyHAHyygT8b3XwZAZCAfEZAqnZAXFTAHozHOxWxQRFmgxmzpJpMvTEIx5ou58PAJYeewUoDEfPYaPO0qAUYZD'
+            'access_token': 'EAAHgV1PlgJwBANyQhVdlmho0ZBpZBkLcOHMUbLjEMUZBDGZAxe0Xk6I7ZCkpc8vn1lcnqSeZAqns2o6eJECCLDTpwb7hzOm6rYavC0x9liyLJMQKOQFGNVNGhutypT0N7IG5sVIjG1AosdbfgujquqXWJSBALKk0hGHZAtPpKHcqfMDQwMkbZCfzDIwqp5N0mcgZD'
         }, function(api_response) {
           
           global_response = api_response;
@@ -103,9 +103,9 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
                     if (comment.length > 80) {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\">" + comment.substring(0, 80) + "...</button><br/>";
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\')>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\">" + comment + "</button><br/>"; 
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\')>" + comment + "</button><br/>"; 
                    }
                   })
                    post_comments += "</div>";

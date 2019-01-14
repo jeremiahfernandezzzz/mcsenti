@@ -240,14 +240,27 @@
         </div>
       </div>
     </main>
-
+    
+    <div id="fixed-background"></div>
   </body>
 </html>
 
 <style>
+  #fixed-background {
+    position: fixed;
+    background-image: url("https://cdn.glitch.com/b17814a0-677b-436c-8cca-8776e3e38f32%2Ffeliphe-schiarolli-445578-unsplash.jpg?1547506641800");
+    width: 100%;
+    top:0px;
+    left:0px;
+    z-index: 99;
+  }
+  
   * {
     overflow-wrap: break-word;
     text-align: center;
+  }
+  
+  body {
   }
   
   #head, #user_info {

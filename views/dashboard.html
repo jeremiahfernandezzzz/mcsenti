@@ -68,6 +68,7 @@
     FB.getLoginStatus(function(response){
       if (response.status === "connected"){
         FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(50).height(50)'}, function(response) {
+          // document.getElementById("user_info").innerHTML = "";
           document.getElementById('user_photo').src = response.picture.data.url;
           document.getElementById('user_name').innerHTML = response.name;
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
@@ -78,7 +79,6 @@
           
           global_response = api_response;
           
-          document.getElementById("user_info").innerHTML += "<input id='search_bar' type='text'/<button onclick='search()'>search</button>";
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
           // document.getElementById('search_from').value = new Date().toLocaleString();
@@ -218,6 +218,7 @@
       </h1>
       
       <div id="user_info">
+        <span style="position:absolute; top 20px; left: 20px;"><input id="search_bar" type="text"/><button onclick="search()">search</button></span>
         <img id="user_photo" style="border-radius: 15px;"/>
         <span id="user_name" style="position: relative; bottom: 20px"></span><br/>
       </div>

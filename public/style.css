@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Open Serif", helvetica, arial, sans-serif;
+/*   font-family: "Open Serif", helvetica, arial, sans-serif; */
   margin: 2em;
   background-color: #0CB3CC;
 }
@@ -45,14 +45,14 @@ input {
 button {
   font-size: 16px;
   border-radius: 3px;
-  background-color: lightgrey;
+  background-color: white;
   border: 1px solid grey;
-  box-shadow: 2px 2px teal;
+/*   box-shadow: 2px 2px teal; */
   cursor: pointer;
 }
 
 button:hover {
-  background-color: grey;
+  background-color: lightgrey;
 }
 
 button:active {

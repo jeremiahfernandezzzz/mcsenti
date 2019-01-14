@@ -54,6 +54,10 @@
           document.getElementById("user_info").innerHTML += "<form><input id='search_bar' type='text'/>from <input id='search_from' type='datetime-local'>to<input id='search_to' type='datetime-local'><button onclick='search()'>search</button></form>";
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
+          document.getElementById('search_from').value = new Date().toLocaleString();
+          document.getElementById('search_to').value = new Date().toLocaleString();
+          console.log(new Date());
+          
           clearModal();
           console.log(api_response);
           if (api_response["data"]){

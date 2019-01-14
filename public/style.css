@@ -3,16 +3,17 @@
 
 * {
   box-sizing: border-box;
+  font-family: ;
 }
 
 body {
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-family: "Open Serif", helvetica, arial, sans-serif;
   margin: 2em;
+  background-color: #0CB3CC;
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+  color: black;
 }
 
 .bold {
@@ -52,7 +53,7 @@ button {
 }
 
 button:hover {
-  background-color: yellow;
+  background-color: grey;
 }
 
 button:active {

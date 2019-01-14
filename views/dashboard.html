@@ -78,7 +78,7 @@
           
           global_response = api_response;
           
-          document.getElementById("user_info").innerHTML += "<input id='search_bar' type='text'/>from <input id='search_from' type='datetime-local'>to<input id='search_to' type='datetime-local'><button onclick='search()'>search</button>";
+          document.getElementById("user_info").innerHTML += "<input id='search_bar' type='text'/><button onclick='search()'>search</button>";
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
           document.getElementById('search_from').value = new Date().toLocaleString();
@@ -92,7 +92,7 @@
             api_response["data"].forEach(function (post){
               console.log(Date.parse(post["created_time"]));
               var post_date = new Date(Date.parse(post["created_time"]));
-              var parent_post = "<div style='border: solid 2px grey; margin: 10px; border-radius: 15px'>" 
+              var parent_post = "<div style='border: solid 2px grey; margin: 10px; border-radius: 15px; background-color: white'>" 
               parent_post += "<br/>" + post_date + "<br/><br/>" + JSON.stringify(post["message"]);
               // document.getElementById("recent_posts").innerHTML +=;
               

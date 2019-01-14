@@ -73,7 +73,7 @@
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name,comments,created_time', {
-            'access_token': 'EAAHgV1PlgJwBADQWdMOEu21CjCFVrmZBxd76w5DZAK8Cfk7TwUwWgZCZAjntJEaAUa5kXSLipZB1NMJSGFMIv8NCadmwXuyGuAxLBn4k42zTDkZAHWtmj8B6ppZAEsSX2DuY5He9ZA3v6Mqm7r9BsmcHnyKiGR0UrgLSP2igzn5AK7NhWpELZAuUc7oxhq9YnuZB0ZD'
+            'access_token': 'EAAHgV1PlgJwBALBqzGc9am6RYZAZCfYrjSPuTVxxRxIVRcNrklDRWqUhjD08k638mPKyijZBRlAFRmpVvU3PpVZCWesZBPngagVAsWCpOWatUBFSKNBhlV6ubZBz571Yz9NvCroW3yfuucYIoryxpuSpxuqLLZCTwuWmpLLkrJGkiSKqaeXJzfSS3Ck6YZCdSQAZD'
         }, function(api_response) {
           
           global_response = api_response;
@@ -187,7 +187,7 @@
 
       if (oReq.readyState == 4 && oReq.status == 200) {
         var analysis = "";
-        analysis = "<strong>post:</strong><br/><em>" + "" + "</em><br/><br/><strong>comment:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>analysis:</strong><br/><em>positive:</em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral:</em> " + JSON.parse(oReq.responseText)["mid_percent"];
+        analysis = "<strong>comment:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>analysis:</strong><br/><em>positive:</em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral:</em> " + JSON.parse(oReq.responseText)["mid_percent"];
         document.getElementById("analysis_modal").innerHTML = analysis;
       } else {
         document.getElementById("analysis_modal").innerHTML = "Something went wrong.<br/>";

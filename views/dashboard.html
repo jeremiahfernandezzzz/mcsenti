@@ -25,7 +25,6 @@
   </head>
   
   <script>
-    console.log("aye");
     
     var global_response = {};
     
@@ -40,16 +39,13 @@
     FB.AppEvents.logPageView();   
     
     FB.getLoginStatus(function(response){
-      console.log(response);
       if (response.status === "connected"){
         FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(50).height(50)'}, function(response) {
-          // document.getElementById('status').innerHTML = response.id;
-          // console.log(response.name);
           document.getElementById('user_photo').src = response.picture.data.url;
           document.getElementById('user_name').innerHTML = response.name;
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
-        FB.api('/326043571334336/feed?fields=id,message,name,comments', {
+        FB.api('/326043571334336/feed?fields=id,message,name,comments,created_time', {
             'access_token': 'EAAHgV1PlgJwBAI45uaDMlZAmZBfNzUQIIVWXkQb8m5K2Hfa2umIpVifKQZCZCRHkcaHumZB0431dvL2VyM2HrgaZCfQczucOCh5lQ1uwMPZBp1VLErrIVfUYi0GNtfdErT6ZBs4m4W4ZC4oopr99ETyfd9KRfIsFiEJsVjqDlicdufsN95WuoEdKGvgrUkZAVfsaYZD'
         }, function(api_response) {
           
@@ -58,13 +54,13 @@
           document.getElementById("user_info").innerHTML += "<form><input id='search_bar' type='text'/><button onclick='search()'>search</button></form>";
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
+          clearModal();
+          
           if (api_response["data"]){
-            clearModal();
             
             api_response["data"].forEach(function (post){
-              // console.log(post["message"]);
               var parent_post = "<div style='border: solid 2px grey; margin: 10px; border-radius: 15px'>" 
-              parent_post += "<br/>" + JSON.stringify(post["message"]);
+              parent_post += "<br/>" + JSON.stringify(post["created_time"]) + JSON.stringify(post["message"]);
               // document.getElementById("recent_posts").innerHTML +=;
               
               if (post["comments"]){
@@ -72,7 +68,6 @@
                   post_comments += "<div style='position: relative; padding: 40px; text-align: center'>";  
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
-                    console.log(comment);
                     if (comment.length > 80) {
                       post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
@@ -111,7 +106,6 @@
                 post_comments += "<div style='position: relative; padding: 40px; text-align: center'>";  
                 post["comments"]["data"].forEach(function(comment){
                   var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
-                  console.log(comment);
                   if (comment.length > 80) {
                     post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                   } else {
@@ -137,13 +131,10 @@
   
   function analyze(message){
     var oReq = new XMLHttpRequest();
-    // oReq.onload = window.setTimeout(console.log(JSON.stringify(oReq.responseText)), 3000);
     oReq.open("POST", "https://text-sentiment.p.rapidapi.com/analyze");
     oReq.setRequestHeader("X-RapidAPI-Key", "GJjeiXWiy9msh8PhUc5GY5sarPaPp1hxySTjsnKmViFAeiK8jC");
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     oReq.setRequestHeader("Access-Control-Allow-Origin", "*");
-    // oReq.setRequestHeader("text", message);
-    // console.log(typeof(oReq.send()));
     oReq.send("text=" + message);
     
   
@@ -159,7 +150,6 @@
     
 
       if (oReq.readyState == 4 && oReq.status == 200) {
-        console.log(oReq.responseText);
         var analysis = "";
         analysis = "<strong>comment:</strong><br/><em>" + JSON.parse(oReq.responseText)["text"] + "</em><br/><br/><strong>analysis:</strong><br/><em>positive:</em> " + JSON.parse(oReq.responseText)["pos_percent"] + " | <em>negative:</em> " + JSON.parse(oReq.responseText)["neg_percent"] + " | <em>neutral:</em> " + JSON.parse(oReq.responseText)["mid_percent"];
         document.getElementById("analysis_modal").innerHTML = analysis;

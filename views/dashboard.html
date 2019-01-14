@@ -103,9 +103,9 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
                     if (comment.length > 80) {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\">" + comment.substring(0, 80) + "...</button><br/>";
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\">" + comment + "</button><br/>"; 
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\")'>" + comment + "</button><br/>"; 
                    }
                   })
                    post_comments += "</div>";

@@ -59,12 +59,13 @@
           if (api_response["data"]){
             
             api_response["data"].forEach(function (post){
-              console.log(typeof(post["created_time"]));
-              var post_date = new Date(JSON.stringify(post["created_time"].substring(0,17)));
+              console.log(Date.parse(post["created_time"]));
+              var post_date = new Date(Date.parse(post["created_time"]));
               var parent_post = "<div style='border: solid 2px grey; margin: 10px; border-radius: 15px'>" 
-              parent_post += "<br/>" + post_date + JSON.stringify(post["message"]);
+              parent_post += "<br/>" + post_date + "<br/><br/>" + JSON.stringify(post["message"]);
               // document.getElementById("recent_posts").innerHTML +=;
               
+              console.log(typeof(post_date));
               if (post["comments"]){
                   var post_comments = ""; 
                   post_comments += "<div style='position: relative; padding: 40px; text-align: center'>";  

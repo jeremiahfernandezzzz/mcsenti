@@ -78,7 +78,7 @@
           
           global_response = api_response;
           
-          document.getElementById("user_info").innerHTML += "<form><input id='search_bar' type='text'/>from <input id='search_from' type='datetime-local'>to<input id='search_to' type='datetime-local'><button onclick='search()'>search</button></form>";
+          document.getElementById("user_info").innerHTML += "<input id='search_bar' type='text'/>from <input id='search_from' type='datetime-local'>to<input id='search_to' type='datetime-local'><button onclick='search()'>search</button>";
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
           
           document.getElementById('search_from').value = new Date().toLocaleString();
@@ -103,9 +103,9 @@
                   post["comments"]["data"].forEach(function(comment){
                     var comment = JSON.stringify(comment["message"]).replace("'","").replace(/[^\w\s.]/gi, '');
                     if (comment.length > 80) {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment.substring(0, 80) + "...</button><br/>";
                     } else {
-                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + JSON.stringify(post["message"]) + "\")'>" + comment + "</button><br/>"; 
+                      post_comments += "<button style='position: relative; width: 70%;'onclick='analyze(\"" + comment + "\")'>" + comment + "</button><br/>"; 
                    }
                   })
                    post_comments += "</div>";
@@ -127,8 +127,8 @@
   };
 
     function search(){
-      alert(Date.parse(document.getElementById("search_from").value));
-      alert(Date.parse(document.getElementById("search_to").value));
+      // alert(Date.parse(document.getElementById("search_from").value));
+      // alert(Date.parse(document.getElementById("search_to").value));
       document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
       
         global_response["data"].forEach(function (post){

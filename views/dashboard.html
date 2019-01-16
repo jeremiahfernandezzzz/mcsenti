@@ -74,7 +74,7 @@
           document.getElementById("head").innerHTML = "Welcome to<br/>MC Senti";
         });
         FB.api('/326043571334336/feed?fields=id,message,name,comments,created_time', {
-            'access_token': 'EAAHgV1PlgJwBALBqzGc9am6RYZAZCfYrjSPuTVxxRxIVRcNrklDRWqUhjD08k638mPKyijZBRlAFRmpVvU3PpVZCWesZBPngagVAsWCpOWatUBFSKNBhlV6ubZBz571Yz9NvCroW3yfuucYIoryxpuSpxuqLLZCTwuWmpLLkrJGkiSKqaeXJzfSS3Ck6YZCdSQAZD'
+            'access_token': 'EAAHgV1PlgJwBAA8QzOzFeVzg8mI7yIwhKpxULn9czT40c4Qf8FxZBQNGLog90nIHZAMWjCK1TF7pyj1wigZAQhLol7aZCiDt09pZBO4wCZBGTVfZCbYsY2ejodZBVIZA2QOnZCVnUbWMjsAlqF4MYJxCjxvJerfHrWDVUh1peAekZBdCCxKywjuJBS3kaESkRw1Yo4ZD'
         }, function(api_response) {
           
           global_response = api_response;
@@ -181,7 +181,7 @@
     
     document.getElementById("analysis_modal").style = "position: relative;  top: 25vh; width: 70vw; visibility: visible; border: solid 2px grey; background-color: white; display: inline-block; padding: 20px; border-radius: 15px;";
     
-    document.getElementById("analysis_modal").innerHTML = "Please wait";
+    document.getElementById("analysis_modal").innerHTML = "Please wait<br/><br/><button onclick=\"clearModal()\">cancel</button>";
     oReq.onreadystatechange = function() {
     
 

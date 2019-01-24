@@ -36,7 +36,6 @@
     });
       
     FB.AppEvents.logPageView();   
-    
   };
 
   (function(d, s, id){
@@ -64,7 +63,6 @@
     </header>
 
     <main>  
-      <span id="wait">Please wait</span>
       <fb:login-button 
         scope="public_profile,email"
         onlogin="checkLoginState();">
@@ -77,7 +75,7 @@
 </html>
 
 <script>
-  document.getElementById('wait').innerHTML = "";
+  
 </script>
 
 <style>

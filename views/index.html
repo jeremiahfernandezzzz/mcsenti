@@ -36,7 +36,7 @@
     });
       
     FB.AppEvents.logPageView();   
-      
+    
   };
 
   (function(d, s, id){
@@ -54,6 +54,8 @@
       }
     });
   }
+  
+  // alert(document.getElementsByClassName('wait').innerHTML);
 </script>
     <header>
       <h1>
@@ -62,7 +64,7 @@
     </header>
 
     <main>  
-      
+      <span id="wait">Please wait</span>
       <fb:login-button 
         scope="public_profile,email"
         onlogin="checkLoginState();">
@@ -73,6 +75,10 @@
     use your facebook account to log in
   </body>
 </html>
+
+<script>
+  document.getElementById('wait').innerHTML = "";
+</script>
 
 <style>
   * {

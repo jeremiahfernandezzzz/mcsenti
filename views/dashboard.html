@@ -130,7 +130,7 @@
       
         global_response["data"].forEach(function (post){
           if ( JSON.stringify(post["message"]).includes(document.getElementById("search_bar").value) ){    
-          var parent_post = "<div style='border: solid 2px grey; margin: 10px; border-radius: 15px'>" 
+          var parent_post = "<div style='background-color: white; border: solid 2px grey; margin: 10px; border-radius: 15px'>" 
               parent_post += "<br/>" + JSON.stringify(post["message"]);
               // document.getElementById("recent_posts").innerHTML +=;
 
@@ -207,20 +207,18 @@
   
   <body>
     
-    <header>
+    <header style="position:fixed;" >
       <h1 id="head">
         MC Senti
       </h1>
       
-      <div >
-        <span style="position:fixed; top: 40px; left: 20px;"><input id="search_bar" type="text"/><button onclick="search()">search</button></span>
-      
-      <div id="user_info"style="position:fixed; top: 40px; right: 20px;">
-        <img id="user_photo" style="border-radius: 15px;"/>
-        <span id="user_name" style="position: relative; bottom: 20px"></span><br/>
-      </div>
-      </div>
-      
+    <div style="position:relative; top: 40px; left: 20px; padding: 20px; background-color: white; opacity: .5;"><input id="search_bar" type="text"/><button onclick="search()">search</button></div>
+
+    <div id="user_info" style="position:relative; top: 40px; right: 20px; padding: 20px; background-color: white; opacity: .5;">
+      <img id="user_photo" style="border-radius: 15px;"/>
+      <span id="user_name" style="position: relative; bottom: 20px"></span><br/>
+    </div>
+
     </header>
 
     <br/>

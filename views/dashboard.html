@@ -80,6 +80,7 @@
           global_response = api_response;
           
           document.getElementById("recent_posts").innerHTML = "<strong>Recent Posts</strong><br/><br/>";
+          document.getElementById("main_header").style = "";
                     
           clearModal();
           console.log(api_response);
@@ -207,14 +208,14 @@
   
   <body>
     
-    <header>
+    <header id="main_header" style="display:none">
       <h1 id="head" style="padding: 20px; background-color: white; width: 100%; border: solid 2px grey;">
         MC Senti
       </h1>
       
-    <div style="position: fixed; top: 40px; left: 40px; padding: 20px; background-color: white; opacity: .9; border-radius: 15px"><input id="search_bar" type="text"/><button onclick="search()">search</button></div>
+    <div style="position: fixed; top: 40px; left: 40px; padding: 20px; border-radius: 15px; z-index: 98;"><input id="search_bar" type="text"/><button onclick="search()">search</button></div>
 
-    <div id="user_info" style="position: fixed; top: 40px; right: 40px; padding: 20px; background-color: white; opacity: .9; border-radius: 15px">
+    <div id="user_info" style="position: absolute; top: 40px; right: 40px; padding: 20px; border-radius: 15px">
       <img id="user_photo" style="border-radius: 15px;"/>
       <span id="user_name" style="position: relative; bottom: 20px"></span><br/>
     </div>

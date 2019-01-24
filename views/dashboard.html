@@ -207,14 +207,14 @@
   
   <body>
     
-    <header style="position:fixed;" >
-      <h1 id="head">
+    <header>
+      <h1 id="head" style="padding: 20px; background-color: white; width: 100%; border: solid 2px grey;">
         MC Senti
       </h1>
       
-    <div style="position:relative; top: 40px; left: 20px; padding: 20px; background-color: white; opacity: .5;"><input id="search_bar" type="text"/><button onclick="search()">search</button></div>
+    <div style="position: fixed; top: 40px; left: 40px; padding: 20px; background-color: white; opacity: .9; border-radius: 15px"><input id="search_bar" type="text"/><button onclick="search()">search</button></div>
 
-    <div id="user_info" style="position:relative; top: 40px; right: 20px; padding: 20px; background-color: white; opacity: .5;">
+    <div id="user_info" style="position: fixed; top: 40px; right: 40px; padding: 20px; background-color: white; opacity: .9; border-radius: 15px">
       <img id="user_photo" style="border-radius: 15px;"/>
       <span id="user_name" style="position: relative; bottom: 20px"></span><br/>
     </div>
